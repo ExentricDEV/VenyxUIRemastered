@@ -1982,7 +1982,7 @@ do
 				return module
 			end
 		end
-
+		print("time to error")
 		error("No module found under "..tostring(info))
 	end
 
@@ -1997,23 +1997,16 @@ do
 	function section:updateToggle(toggle, title, value)
 		print("test1")
 		toggle = self:getModule(toggle)
-		print("test2")
+		print(toggle)
 		local position = {
 			In = UDim2.new(0, 2, 0.5, -6),
 			Out = UDim2.new(0, 20, 0.5, -6)
 		}
-		print("2.5")
-		print(toggle:GetFullName())
-		print(toggle.Button:GetFullName())
-		print(toggle.Button.Frame)
 		local frame = toggle.Button.Frame
-		print("3")
-		print(value)
 		if value == nil then
 			value = not toggle:GetAttribute("Active")
 		end
 		toggle:SetAttribute("Active", value)
-		print(value)
 		value = value and "Out" or "In"
 
 		if title then
