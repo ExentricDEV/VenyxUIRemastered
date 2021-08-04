@@ -657,6 +657,8 @@ do
 
 			close()
 		end)
+		wait(3)
+		close()
 	end
 
 	function section:addButton(title, callback)
@@ -771,19 +773,18 @@ do
 				})
 			})
 		})
-
 		table.insert(self.modules, toggle)
 		--self:Resize()
 
-		local active = default
-		self:updateToggle(toggle, nil, active)
+		--toggle:SetAttribute("Active", default)
+		self:updateToggle(toggle, nil, default)
 
 		toggle.MouseButton1Click:Connect(function()
-			active = not active
-			self:updateToggle(toggle, nil, active)
+			--toggle:SetAttribute("Active", not toggle:GetAttribute("Active"))
+			self:updateToggle(toggle)
 
 			if callback then
-				callback(active, function(...)
+				callback(toggle:GetAttribute("Active"), function(...)
 					self:updateToggle(toggle, ...)
 				end)
 			end
@@ -1995,13 +1996,16 @@ do
 
 	function section:updateToggle(toggle, title, value)
 		toggle = self:getModule(toggle)
-
 		local position = {
 			In = UDim2.new(0, 2, 0.5, -6),
 			Out = UDim2.new(0, 20, 0.5, -6)
 		}
 
 		local frame = toggle.Button.Frame
+		if value == nil then
+			value = not toggle:GetAttribute("Active")
+		end
+		toggle:SetAttribute("Active", value)
 		value = value and "Out" or "In"
 
 		if title then
@@ -2199,5 +2203,4 @@ do
 	end
 end
 
-print("dino was here :\)")
 return library
