@@ -2002,8 +2002,9 @@ do
 			In = UDim2.new(0, 2, 0.5, -6),
 			Out = UDim2.new(0, 20, 0.5, -6)
 		}
-
+		print("2.5")
 		local frame = toggle.Button.Frame
+		print("3")
 		print(value)
 		if value == nil then
 			value = not toggle:GetAttribute("Active")
