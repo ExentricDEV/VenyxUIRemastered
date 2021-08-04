@@ -2003,6 +2003,9 @@ do
 			Out = UDim2.new(0, 20, 0.5, -6)
 		}
 		print("2.5")
+		print(toggle:GetFullName())
+		print(toggle.Button:GetFullName())
+		print(toggle.Button.Frame)
 		local frame = toggle.Button.Frame
 		print("3")
 		print(value)
