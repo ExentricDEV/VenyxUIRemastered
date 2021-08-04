@@ -2002,10 +2002,12 @@ do
 		}
 
 		local frame = toggle.Button.Frame
+		print(value)
 		if value == nil then
 			value = not toggle:GetAttribute("Active")
 		end
 		toggle:SetAttribute("Active", value)
+		print(value)
 		value = value and "Out" or "In"
 
 		if title then
