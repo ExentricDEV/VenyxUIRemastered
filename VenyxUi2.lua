@@ -1995,9 +1995,7 @@ do
 	end
 
 	function section:updateToggle(toggle, title, value)
-		print("test1")
 		toggle = self:getModule(toggle)
-		print(toggle)
 		local position = {
 			In = UDim2.new(0, 2, 0.5, -6),
 			Out = UDim2.new(0, 20, 0.5, -6)
